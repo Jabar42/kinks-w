@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generador de Enlaces de WhatsApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .formulario {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function generarEnlaceWhatsApp() {
+            var numeroTelefono = document.getElementById("numeroTelefono").value;
+            numeroTelefono = numeroTelefono.replace(/\s+/g, ''); // Elimina espacios
+            var mensaje = encodeURIComponent(document.getElementById("mensaje").value);
+            var enlaceWhatsApp = "https://wa.me/" + numeroTelefono + "?text=" + mensaje;
+
+            window.open(enlaceWhatsApp, '_blank').focus();
+        }
+    </script>
+</head>
+<body>
+    <div class="formulario">
+        <h2>Generador de Enlaces de WhatsApp</h2>
+        <p>Introduce el número de teléfono y el mensaje:</p>
+        <input type="text" id="numeroTelefono" placeholder="Número de teléfono">
+        <textarea id="mensaje" placeholder="Escribe tu mensaje aquí"></textarea>
+        <button onclick="generarEnlaceWhatsApp()">Generar Enlace</button>
+    </div>
+</body>
+</html>
